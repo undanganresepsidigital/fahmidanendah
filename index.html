@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Undangan Pernikahan Endah &amp; Fahmi</title>
+<meta name="description" content="Undangan pernikahan Endah &amp; Fahmi, 5 Januari 2027, Tuban.">
+<meta property="og:title" content="Undangan Pernikahan Endah &amp; Fahmi">
+<meta property="og:description" content="Kami mengundang Anda di hari bahagia kami.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💍%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="locked">
+
+<div id="open">
+  <div class="who" id="toWrap">Kepada Yth. Bapak/Ibu/Saudara/i<b id="to"></b></div>
+  <div class="env" id="env"><div class="lbl script">Anda diundang…</div><div class="flap"></div><button class="seal" id="sealBtn" aria-label="Buka undangan">E&amp;F</button></div>
+  <div class="hint">KETUK SEGEL UNTUK MEMBUKA</div>
+</div>
+
+<audio id="audio" loop preload="none"></audio>
+<button id="music" aria-label="Musik latar: nyalakan atau matikan">♪</button>
+
+<section id="hero"><div class="wrap">
+  <div class="pre">THE WEDDING OF</div>
+  <h1 id="names"></h1>
+  <div class="date" id="dt"></div>
+  <div class="count" id="count"></div>
+</div></section>
+
+<section><div class="wrap rv">
+  <h2 class="script">Mempelai</h2><p>Bismillahirrahmanirrahim. Dengan rahmat Allah SWT, kami akan menikah.</p>
+  <div class="cards" id="couple"></div>
+</div></section>
+
+<section><div class="wrap rv">
+  <h2 class="script">Detail Acara</h2><p>Kami mengundang Anda untuk hadir dan memberi doa restu.</p>
+  <div class="cards" id="events"></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2 class="script rv">Perjalanan Cinta</h2><p class="rv">Dari pertemuan sederhana menjadi janji seumur hidup.</p>
+  <div class="tl rv" id="story"></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2 class="script rv">Galeri</h2><p class="rv">Ketuk foto untuk memperbesar.</p>
+  <div class="grid rv" id="grid"></div>
+</div></section>
+
+<section><div class="wrap rv">
+  <h2 class="script">Konfirmasi Kehadiran</h2><p>Mohon konfirmasi kehadiran Anda.</p>
+  <form id="rsvp">
+    <input id="rn" placeholder="Nama lengkap" required maxlength="60" aria-label="Nama lengkap">
+    <div class="row"><label><input type="radio" name="a" value="Hadir" checked> Hadir</label><label><input type="radio" name="a" value="Tidak hadir"> Tidak hadir</label></div>
+    <select id="rc" aria-label="Jumlah tamu"><option value="1">1 orang</option><option value="2">2 orang</option><option value="3">3 orang</option><option value="4">4 orang</option></select>
+    <button class="btn fill" type="submit">Kirim konfirmasi</button>
+  </form>
+  <div class="msg" id="rm" role="status"></div>
+</div></section>
+
+<section><div class="wrap rv">
+  <h2 class="script">Ucapan &amp; Doa</h2><p>Tulis doa dan harapan terbaik untuk kedua mempelai.</p>
+  <form id="wish">
+    <input id="wn" placeholder="Nama" required maxlength="60" aria-label="Nama">
+    <textarea id="wt" rows="3" placeholder="Ucapan dan doa" required maxlength="300" aria-label="Ucapan dan doa"></textarea>
+    <button class="btn fill" type="submit">Kirim ucapan</button>
+  </form>
+  <div class="list" id="wl"></div>
+</div></section>
+
+<section><div class="wrap rv">
+  <h2 class="script">Buku Tamu</h2><p>Tamu yang sudah konfirmasi hadir.</p>
+  <div class="list" id="gl"></div>
+</div></section>
+
+<section><div class="wrap rv">
+  <h2 class="script">Wedding Gift</h2><p>Kehadiran dan doa Anda adalah hadiah terbaik. Jika ingin berbagi kebahagiaan, Anda dapat mengirim hadiah digital.</p>
+  <div id="gifts"></div><div class="msg" id="cm" role="status"></div>
+</div></section>
+
+<footer><div class="script" style="font-size:2rem">Endah &amp; Fahmi</div>Terima kasih atas doa dan kehadiran Anda.</footer>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Galeri foto"><button class="c x" aria-label="Tutup">×</button><button class="c p" aria-label="Sebelumnya">‹</button><div class="ph" id="lbi"></div><button class="c n" aria-label="Berikutnya">›</button></div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

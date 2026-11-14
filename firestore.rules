@@ -1,0 +1,34 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // GANTI dengan email akun admin yang Anda buat di Firebase Authentication
+    function isAdmin() {
+      return request.auth != null && request.auth.token.email == "ADMIN_EMAIL@gmail.com";
+    }
+
+    match /rsvp/{id} {
+      allow read: if true;   // hanya nama, status, jumlah (dipakai Buku Tamu)
+      allow create: if request.resource.data.keys().hasOnly(['name','attend','count','createdAt'])
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0 && request.resource.data.name.size() <= 60
+        && request.resource.data.attend in ['Hadir','Tidak hadir']
+        && request.resource.data.count is int
+        && request.resource.data.count >= 1 && request.resource.data.count <= 10
+        && request.resource.data.createdAt == request.time;
+      allow update: if false;
+      allow delete: if isAdmin();
+    }
+
+    match /wishes/{id} {
+      allow read: if true;
+      allow create: if request.resource.data.keys().hasOnly(['name','text','createdAt'])
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0 && request.resource.data.name.size() <= 60
+        && request.resource.data.text is string
+        && request.resource.data.text.size() > 0 && request.resource.data.text.size() <= 300
+        && request.resource.data.createdAt == request.time;
+      allow update: if false;
+      allow delete: if isAdmin();
+    }
+  }
+}

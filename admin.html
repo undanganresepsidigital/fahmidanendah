@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Admin Undangan</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="adm">
+  <h1>Admin Undangan</h1>
+  <div class="demo" id="demo" hidden>Mode demo: Firebase belum diisi di js/firebase.js, data hanya tersimpan di browser ini.</div>
+
+  <div id="login" hidden style="max-width:360px">
+    <form id="lf">
+      <input id="em" type="email" placeholder="Email admin" required autocomplete="username" aria-label="Email admin">
+      <input id="pw" type="password" placeholder="Kata sandi" required autocomplete="current-password" aria-label="Kata sandi">
+      <button class="btn fill" type="submit">Masuk</button>
+    </form>
+    <div class="msg" id="le"></div>
+  </div>
+
+  <div id="panel" hidden>
+    <div class="bar" style="justify-content:space-between"><span>Ringkasan konfirmasi</span><button class="btn" id="out">Keluar</button></div>
+    <div class="stats">
+      <div><b id="s1">0</b>Total tamu hadir</div><div><b id="s2">0</b>Konfirmasi hadir</div>
+      <div><b id="s3">0</b>Tidak hadir</div><div><b id="s4">0</b>Ucapan</div>
+    </div>
+
+    <h2>Buat link tamu</h2>
+    <div class="bar"><input id="gn" placeholder="Nama tamu, contoh: Bapak Ahmad" aria-label="Nama tamu"><button class="btn" id="gc">Salin link</button><button class="btn fill" id="gw">Kirim WhatsApp</button></div>
+    <p id="gu" style="word-break:break-all;color:var(--soft);font-size:13px"></p>
+
+    <div class="bar" style="justify-content:space-between;margin-top:30px"><h2>RSVP</h2><button class="btn" id="csv">Unduh CSV</button></div>
+    <div class="tw"><table><thead><tr><th>Nama</th><th>Status</th><th>Jumlah</th><th>Waktu</th><th></th></tr></thead><tbody id="tr"></tbody></table></div>
+
+    <h2>Ucapan &amp; Doa</h2>
+    <div class="tw"><table><thead><tr><th>Nama</th><th>Ucapan</th><th>Waktu</th><th></th></tr></thead><tbody id="tw"></tbody></table></div>
+  </div>
+</div>
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>
