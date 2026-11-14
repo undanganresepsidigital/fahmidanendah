@@ -50,8 +50,6 @@ $("#wish").onsubmit = async e => { e.preventDefault(); const btn = e.submitter; 
   try { await add("wishes", { name: $("#wn").value.trim(), text: $("#wt").value.trim() }); $("#wt").value = ""; } catch (err) { alert("Gagal mengirim ucapan. Coba lagi."); }
   btn.disabled = false; };
 watch("wishes", r => $("#wl").innerHTML = r.length ? r.map(x => `<article><b>${esc(x.name)}</b><small>${fmt(x.createdAt)}</small><p>${esc(x.text)}</p></article>`).join("") : `<p class="empty">Belum ada ucapan. Jadilah yang pertama.</p>`);
-watch("rsvp", r => { const h = r.filter(x => x.attend === "Hadir");
-  $("#gl").innerHTML = h.length ? h.map(x => `<article><b>${esc(x.name)}</b><small>${x.count} orang</small></article>`).join("") : `<p class="empty">Belum ada tamu yang konfirmasi.</p>`; });
 if (!ready) console.info("Firebase belum diisi: mode demo (localStorage).");
 
 document.querySelectorAll("[data-copy]").forEach(b => b.onclick = async () => { const el = $("#" + b.dataset.copy);

@@ -25,7 +25,7 @@ undangan-endah-fahmi/
 2. **Build > Firestore Database > Create database** (mode production, pilih region asia-southeast2 Jakarta).
 3. **Build > Authentication > Get started > Email/Password > Enable**. Lalu tab Users > Add user (email & sandi admin Anda).
 4. **Project settings > Your apps > Web (`</>`)**, daftarkan app, salin objek `firebaseConfig` ke `js/firebase.js`.
-5. **Firestore > Rules**: tempel isi `firestore.rules`, ganti `ADMIN_EMAIL@gmail.com` dengan email admin tadi, lalu Publish.
+5. **Firestore > Rules**: tempel isi `firestore.rules`, lalu Publish. Pastikan akun admin Firebase Authentication menggunakan email `adminfahmiendah@gmail.com`.
 6. **Authentication > Settings > Authorized domains**: tambahkan `USERNAME.github.io`.
 
 ## 2. Isi konten
@@ -51,5 +51,5 @@ Contoh: `.../undangan-endah-fahmi/?to=Bapak%20Ahmad`
 
 ## Catatan
 - Jika Firebase belum diisi, situs berjalan dalam mode demo (data di browser saja).
-- Nama RSVP dan ucapan bisa dibaca publik (dipakai di Buku Tamu). Jangan minta data sensitif seperti nomor HP.
+- Data RSVP hanya bisa dibaca dan dihapus admin. Pengunjung tetap bisa mengirim RSVP; ucapan di Buku Ucapan ditampilkan untuk publik.
 - API key Firebase di kode web memang tidak rahasia; keamanan dijaga oleh `firestore.rules`.
