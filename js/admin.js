@@ -5,7 +5,18 @@ let rsvp = [], wishes = [];
 if (!ready) $("#demo").hidden = false;
 
 onUser(u => { $("#login").hidden = !!u; $("#panel").hidden = !u; if (u) start(); });
-$("#lf").onsubmit = async e => { e.preventDefault(); try { await login($("#em").value, $("#pw").value); } catch (err) { $("#le").textContent = "Email atau kata sandi salah."; } };
+$("#lf").onsubmit = async e => { e.preventDefault(); try { await login($("#em").value, $("#pw").value); } catch (err) {
+  const code = err && err.code;
+  const messages = {
+    "auth/invalid-credential": "Email atau kata sandi salah, atau akun tidak ada di project Firebase ini.",
+    "auth/user-not-found": "Akun tidak ditemukan di project Firebase ini.",
+    "auth/wrong-password": "Kata sandi salah.",
+    "auth/operation-not-allowed": "Login Email/Password belum diaktifkan di Firebase Authentication.",
+    "auth/unauthorized-domain": "Domain undanganresepsidigital.github.io belum diizinkan di Firebase Authentication.",
+    "auth/network-request-failed": "Tidak dapat terhubung ke Firebase. Periksa koneksi internet."
+  };
+  $("#le").textContent = messages[code] || `Login gagal (${code || "unknown"}). Periksa akun dan konfigurasi Firebase.`;
+} };
 $("#out").onclick = () => logout();
 
 let started = false;
