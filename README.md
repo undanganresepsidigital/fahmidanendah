@@ -14,7 +14,7 @@ undangan-endah-fahmi/
 │   ├── app.js          # logika halaman undangan
 │   └── admin.js        # logika dashboard admin
 ├── assets/
-│   ├── img/            # 1.jpg (foto galeri)
+│   ├── img/            # 1.png (foto galeri)
 │   └── audio/          # music.mp3 (musik latar)
 ├── firestore.rules     # aturan keamanan Firestore
 └── README.md
@@ -30,7 +30,7 @@ undangan-endah-fahmi/
 
 ## 2. Isi konten
 - Edit `js/config.js` untuk nama, detail acara, dan foto.
-- Masukkan satu foto ke `assets/img/1.jpg` (rasio 3:4) dan musik ke `assets/audio/music.mp3`.
+- Masukkan satu foto ke `assets/img/1.png` dan musik ke `assets/audio/music.mp3`.
 
 ## 3. Deploy ke GitHub Pages
 ```bash

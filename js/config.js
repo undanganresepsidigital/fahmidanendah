@@ -9,6 +9,6 @@ export const W = {
     { name: "Resepsi", date: "Selasa, 5 Januari 2027", time: "11.00 – 13.00 WIB", place: "Hotel Mustika Tuban", addr: "Tuban, Jawa Timur", map: "https://maps.app.goo.gl/ZU6Mbxg8H8tYi7476?g_st=iw" }
   ],
   // Taruh foto di assets/img/ lalu daftarkan di sini
-  photos: ["assets/img/1.jpg"],
+  photos: ["assets/img/1.png"],
   music: "assets/audio/music.mp3"
 };
