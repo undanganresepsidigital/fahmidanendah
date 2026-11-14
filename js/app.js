@@ -9,8 +9,6 @@ $("#names").textContent = W.title;
 $("#dt").textContent = W.events[W.events.length - 1].date;
 $("#couple").innerHTML = [W.bride, W.groom].map(p => `<div class="card"><h3>${esc(p.full)}</h3><p>${esc(p.desc)}</p><a class="btn" target="_blank" rel="noopener" href="https://instagram.com/${esc(p.ig)}">@${esc(p.ig)}</a></div>`).join("");
 $("#events").innerHTML = W.events.map(e => `<div class="card"><h3>${esc(e.name)}</h3><p class="t">${esc(e.date)}</p><p class="t">${esc(e.time)}</p><p><b>${esc(e.place)}</b><br>${esc(e.addr)}</p><a class="btn fill" target="_blank" rel="noopener" href="${esc(e.map)}">GOOGLE MAPS</a></div>`).join("");
-$("#story").innerHTML = W.story.map(s => `<div><small>${esc(s.year)}</small><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></div>`).join("");
-$("#gifts").innerHTML = W.gifts.map((g, i) => `<div class="card acc"><h3>${esc(g.bank)}</h3><div class="no" id="n${i}">${esc(g.no)}</div><p>a.n. ${esc(g.name)}</p><button class="btn" data-copy="n${i}">SALIN NOMOR REKENING</button></div>`).join("");
 
 const audio = $("#audio"); audio.src = W.music;
 const music = $("#music");
@@ -38,6 +36,7 @@ W.photos.forEach((src, i) => { const b = document.createElement("button"); b.cla
 let cur = 0;
 function show(i) { cur = (i + W.photos.length) % W.photos.length; $("#lb").classList.add("on"); const e = $("#lbi"); e.style.background = bgOf(cur); e.innerHTML = `<img src="${esc(W.photos[cur])}" alt="" onerror="this.remove()">`; }
 $("#lb .x").onclick = () => $("#lb").classList.remove("on");
+$("#lb .p").hidden = W.photos.length < 2; $("#lb .n").hidden = W.photos.length < 2;
 $("#lb .p").onclick = () => show(cur - 1); $("#lb .n").onclick = () => show(cur + 1);
 $("#lb").onclick = e => { if (e.target.id === "lb") $("#lb").classList.remove("on"); };
 addEventListener("keydown", e => { if (!$("#lb").classList.contains("on")) return; if (e.key === "Escape") $("#lb").classList.remove("on"); if (e.key === "ArrowLeft") show(cur - 1); if (e.key === "ArrowRight") show(cur + 1); });
@@ -51,7 +50,3 @@ $("#wish").onsubmit = async e => { e.preventDefault(); const btn = e.submitter; 
   btn.disabled = false; };
 watch("wishes", r => $("#wl").innerHTML = r.length ? r.map(x => `<article><b>${esc(x.name)}</b><small>${fmt(x.createdAt)}</small><p>${esc(x.text)}</p></article>`).join("") : `<p class="empty">Belum ada ucapan. Jadilah yang pertama.</p>`);
 if (!ready) console.info("Firebase belum diisi: mode demo (localStorage).");
-
-document.querySelectorAll("[data-copy]").forEach(b => b.onclick = async () => { const el = $("#" + b.dataset.copy);
-  try { await navigator.clipboard.writeText(el.textContent); } catch (e) { const r = document.createRange(); r.selectNode(el); getSelection().removeAllRanges(); getSelection().addRange(r); document.execCommand("copy"); }
-  $("#cm").textContent = "Nomor rekening " + el.textContent + " tersalin."; });

@@ -9,12 +9,12 @@ undangan-endah-fahmi/
 ├── admin.html          # dashboard admin (login)
 ├── css/style.css
 ├── js/
-│   ├── config.js       # DATA UNDANGAN (nama, acara, rekening, foto)
+│   ├── config.js       # DATA UNDANGAN (nama, acara, foto)
 │   ├── firebase.js     # config Firebase + fungsi database
 │   ├── app.js          # logika halaman undangan
 │   └── admin.js        # logika dashboard admin
 ├── assets/
-│   ├── img/            # 1.jpg ... 6.jpg (foto galeri)
+│   ├── img/            # 1.jpg (foto galeri)
 │   └── audio/          # music.mp3 (musik latar)
 ├── firestore.rules     # aturan keamanan Firestore
 └── README.md
@@ -29,8 +29,8 @@ undangan-endah-fahmi/
 6. **Authentication > Settings > Authorized domains**: tambahkan `USERNAME.github.io`.
 
 ## 2. Isi konten
-- Edit `js/config.js` untuk cerita cinta dan nomor rekening (saat ini contoh).
-- Masukkan foto ke `assets/img/` (1.jpg sampai 6.jpg, rasio 3:4) dan musik ke `assets/audio/music.mp3`.
+- Edit `js/config.js` untuk nama, detail acara, dan foto.
+- Masukkan satu foto ke `assets/img/1.jpg` (rasio 3:4) dan musik ke `assets/audio/music.mp3`.
 
 ## 3. Deploy ke GitHub Pages
 ```bash
