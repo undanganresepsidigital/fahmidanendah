@@ -4,7 +4,7 @@ import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from
 
 // Tempel config dari Firebase Console > Project settings > Your apps > Web app
 const cfg = {
-  apiKey: "AIzaSyD6P3AgAnelab45qS3cjbtsHgNxYRu-i28M",
+  apiKey: "AIzaSyD6P3qAnelab45q3ScjbtsHgNxYRu-i28M",
   authDomain: "undangan-endah-fahmi.firebaseapp.com",
   projectId: "undangan-endah-fahmi",
   storageBucket: "undangan-endah-fahmi.firebasestorage.app",
