@@ -24,10 +24,11 @@ function start() { if (started) return; started = true;
   watch("rsvp", r => { rsvp = r; draw(); }); watch("wishes", r => { wishes = r; draw(); }); }
 
 function draw() {
-  const hadir = rsvp.filter(x => x.attend === "Hadir");
+  const hadir = rsvp.filter(x => x.attend === "Hadir" || x.attend === "Hadir sekeluarga");
+  const tidakHadir = rsvp.filter(x => x.attend === "Tidak hadir");
   $("#s1").textContent = hadir.reduce((a, x) => a + (x.count || 0), 0);
   $("#s2").textContent = hadir.length;
-  $("#s3").textContent = rsvp.length - hadir.length;
+  $("#s3").textContent = tidakHadir.length;
   $("#s4").textContent = wishes.length;
   $("#tr").innerHTML = rsvp.map(x => `<tr><td>${esc(x.name)}</td><td>${esc(x.attend)}</td><td>${x.count}</td><td>${fmt(x.createdAt)}</td><td><button data-c="rsvp" data-id="${x.id}">Hapus</button></td></tr>`).join("") || `<tr><td colspan="5">Belum ada data.</td></tr>`;
   $("#tw").innerHTML = wishes.map(x => `<tr><td>${esc(x.name)}</td><td>${esc(x.text)}</td><td>${fmt(x.createdAt)}</td><td><button data-c="wishes" data-id="${x.id}">Hapus</button></td></tr>`).join("") || `<tr><td colspan="4">Belum ada data.</td></tr>`;

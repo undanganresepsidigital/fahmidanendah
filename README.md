@@ -51,5 +51,6 @@ Contoh: `.../undangan-endah-fahmi/?to=Bapak%20Ahmad`
 
 ## Catatan
 - Jika Firebase belum diisi, situs berjalan dalam mode demo (data di browser saja).
+- RSVP menyediakan pilihan hadir biasa, hadir sekeluarga, atau tidak hadir; jumlah tamu dapat dipilih hingga 10 orang.
 - Data RSVP hanya bisa dibaca dan dihapus admin. Pengunjung tetap bisa mengirim RSVP; ucapan di Buku Ucapan ditampilkan untuk publik.
 - API key Firebase di kode web memang tidak rahasia; keamanan dijaga oleh `firestore.rules`.

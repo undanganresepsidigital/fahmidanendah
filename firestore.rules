@@ -12,7 +12,7 @@ service cloud.firestore {
         && request.resource.data.name is string
         && request.resource.data.name.size() > 0
         && request.resource.data.name.size() <= 60
-        && request.resource.data.attend in ['Hadir','Tidak hadir']
+        && request.resource.data.attend in ['Hadir','Hadir sekeluarga','Tidak hadir']
         && request.resource.data.count is int
         && request.resource.data.count >= 1
         && request.resource.data.count <= 10
